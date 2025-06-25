@@ -79,7 +79,7 @@ public class BinaryTree <T> {
 	// Devuelve la cantidad de árbol/subárbol hojas del árbol receptor
 	public  int contarHojas() {
 	       int cant=0;
-	        if((this!=null) && (!this.isEmpty())){
+	        if((!this.isEmpty())){
 	           if(this.isLeaf()) {
 	               cant++;
 	           }
@@ -96,7 +96,7 @@ public class BinaryTree <T> {
 	    }
 
 	    public BinaryTree<T> espejo(){
-	        if((this!=null) && (!this.isEmpty())){
+	        if((!this.isEmpty())){
 	            BinaryTree<T> copia = new BinaryTree<T> (this.getData());
 	            if(this.hasLeftChild()) {
 	                copia.addRightChild(this.getLeftChild().espejo());
@@ -110,47 +110,6 @@ public class BinaryTree <T> {
 	    }
 
 	    // 0<=n<=m
-	    /*public void entreNiveles(int n, int m){
-	        //BinaryTree<T> nodo = new BinaryTree<T>();
-	        BinaryTree<T> nodo = null; //-> Teoria
-	        
-	        //crea cola de binaryTree
-	        Queue<BinaryTree<T>> cola = new Queue<BinaryTree<T>>();
-	        
-	        //encola data
-	        //cola.enqueue(this.getData());
-	        cola.enqueue(this); // -> Teoria
-	        //encola null
-	        cola.enqueue(null);
-	        //mientras (cola <> vacia)
-	        int nivel=0;
-	        while(!cola.isEmpty()&& ((n <= nivel) && (nivel<=m))) {
-	            //desencolo data en nodo nuevo binarytree
-	            nodo = cola.dequeue();
-	            //si (nodo <> null)
-	            if(nodo != null) {
-	                //imprimo
-	                System.out.println(nodo.getData());
-	                //si (nodo tiene hijo izq)
-	                if(nodo.hasLeftChild()) {
-	                    //encolo hijo izq
-	                    cola.enqueue(nodo.getLeftChild());
-	                }
-	                if(nodo.hasRightChild()) {
-	                //si (nodo tiene hijo der)
-	                    cola.enqueue(nodo.getRightChild());
-	                    //encolo hijo der
-	                }
-	            }else {
-	            	if(!cola.isEmpty()){
-	            		//sino (cola <> vacia)
-		                cola.enqueue(null);
-		                //encolo null -> (subo de nivel)
-		                nivel++;
-	            	}}}
-	            }
-	        }
-	    }*/
 	    public void entreNiveles(int n, int m) {
 	    	BinaryTree<T> nodo = null;
 	    	

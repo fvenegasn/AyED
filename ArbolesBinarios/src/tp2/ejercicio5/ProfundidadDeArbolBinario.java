@@ -21,7 +21,7 @@ public class ProfundidadDeArbolBinario {
       cola.enqueue(ab);
       cola.enqueue(null);
 
-      while(!cola.isEmpty()) {
+      while(!cola.isEmpty() && nivel <= p) { // nivel <= p para que no entre a niveles despues del deseado
           nodo = cola.dequeue();
           if(ab != null) {
               if(nivel == p) {

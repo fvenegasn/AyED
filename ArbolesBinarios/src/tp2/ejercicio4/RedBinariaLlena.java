@@ -24,7 +24,7 @@ public class RedBinariaLlena {
 									   // arbol como parametro
 	
 	public int retardoReenvio() {
-		if (this != null && !this.arbol.isEmpty()) { // si no lo pongo me desaprueban (el not null, y la posición de las condiciones en el and)?
+		if (this.arbol != null && !this.arbol.isEmpty()) { // si no lo pongo me desaprueban (el not null, y la posición de las condiciones en el and)?
 			return retardoReenvio_private(arbol);
 		} else {
 			return 0;
