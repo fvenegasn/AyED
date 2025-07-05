@@ -71,8 +71,9 @@ public class Mapa {
 		if((vCiudad1 != null) && (vCiudad2 != null)) {
 			boolean[] vertices = new boolean[mapaCiudades.getSize()];
 			marcarCiudadesRestringidas(ciudades, vertices);
-			if ((vertices[vCiudad1.getPosition()] != true) && (vertices[vCiudad2.getPosition()] != true))
-			devolverCaminoPrivado(vertices,camino,vCiudad1,vCiudad2);
+			if ((vertices[vCiudad1.getPosition()] != true) && (vertices[vCiudad2.getPosition()] != true)) {
+				devolverCaminoPrivado(vertices,camino,vCiudad1,vCiudad2);
+			}
 			/*for (int i = 0; i < mapaCiudades.getSize(); i++) {
 				if (vertices[i] != true) {
 				}*/
