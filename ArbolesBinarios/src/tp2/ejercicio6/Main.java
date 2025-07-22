@@ -38,11 +38,11 @@ public class Main {
         
         System.out.println("Inorden:");
         TransformacionTebi.imprimirInorden(nuevoArbolT);
-        System.out.println();*/ 
-
+        System.out.println();
+*/
         
         TransformacionFran f = new TransformacionFran();
-        f.setArbol(raiz);
+        f.setArbol(raiz2);
         BinaryTree<Integer> nuevoArbolF = f.suma();
         
         System.out.println("Inorden:");

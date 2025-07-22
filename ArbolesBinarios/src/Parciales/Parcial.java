@@ -45,7 +45,7 @@ public class Parcial {
 			if (pares == min) {
 				caminoValido = true;
 				camino.clear();
-				camino.addAll(camino);
+				camino.addAll(caminoAct);
 			}
 		} else { // no es una hoja
 			if (!caminoValido) {
@@ -58,7 +58,10 @@ public class Parcial {
 				if (ab.hasRightChild()) {
 					caminoDePares(ab.getRightChild(), min, camino, caminoAct, pares, caminoValido);
 				}
+				// backtracking
+				caminoAct.remove(caminoAct.size()-1);
 			}
+			
 		}
 	}
 }
