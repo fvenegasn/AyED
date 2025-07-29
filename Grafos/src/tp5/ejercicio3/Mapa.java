@@ -198,32 +198,26 @@ public class Mapa {
 	}
 	
 	private void devolverCaminoConMenorCargaDeCombustible(boolean[]vertices, List<String>caminoActual, List<String>caminoCorto, Vertex<String>ciudad1, Vertex<String>ciudad2, int tanqueAuto, int menorCantidadDeCombustible, int combustibleActual) {
-		//boolean ok = false;
 		vertices[ciudad1.getPosition()]=true;
 		caminoActual.add(ciudad1.getData());
 		if((ciudad1.getData().equals(ciudad2.getData())) && (combustibleActual < menorCantidadDeCombustible)){
 			caminoCorto.clear();
 			caminoCorto.addAll(caminoActual);
 			menorCantidadDeCombustible = combustibleActual;
-			//return true;
 		} else {
 			List<Edge<String>> adyacentes = mapaCiudades.getEdges(ciudad1);
-			//Iterator<Edge<String>> it = adyacentes.iterator();
 			for (Edge<String> edge : adyacentes) {
-				//Edge<String> arista = it.next();
 				Vertex<String> proximoVertice = edge.getTarget();
 				if (!vertices[proximoVertice.getPosition()]) {
 					int costo = edge.getWeight(); 
 					if (costo < tanqueAuto) {
 						devolverCaminoConMenorCargaDeCombustible(vertices, caminoActual, caminoCorto, proximoVertice, ciudad2, tanqueAuto, menorCantidadDeCombustible, costo + combustibleActual);
 					}
-
 				}
 			}
 		}
 		caminoActual.remove(caminoActual.size()-1);
 		vertices[ciudad1.getPosition()] = false;
-//		return ok;
 	}
 	
 	public static void main(String[] args) {
