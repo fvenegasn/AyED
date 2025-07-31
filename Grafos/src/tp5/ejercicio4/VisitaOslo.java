@@ -15,10 +15,10 @@ public class VisitaOslo {
 	public List<String> paseoEnBici(Graph<String> lugares, String destino, int maxTiempo, List<String> lugaresRestringidos){
 		List<String> paseo = new ArrayList<String>(); // lista a devolver
 		if (!lugares.isEmpty()){
-			boolean[] vertices = new boolean [lugares.getSize()];
 			Vertex<String> Inicio = lugares.search("Ayuntamiento");
 			Vertex<String> Fin = lugares.search(destino);
 			if((Inicio != null ) && (Fin != null)){
+				boolean[] vertices = new boolean [lugares.getSize()];
 				// aca se podria invocar a metodo que marca como visitados los lugares restringidos
 				paseoEnBiciPrivado(vertices,lugares,maxTiempo,lugaresRestringidos,paseo,Inicio,Fin);
 			}
@@ -39,8 +39,8 @@ public class VisitaOslo {
 			while((it.hasNext()) && (maxTiempo <= 120) && (!ok)) {
 				Edge<String> arista = it.next();
 				Vertex<String> proximoVertice = arista.getTarget();
-				if((!vertice[proximoVertice.getPosition()]) &&(!lugaresRestringidos.contains(proximoVertice.getData()))) {
-					ok  = paseoEnBiciPrivado(vertice,lugares,maxTiempo - arista.getWeight(),lugaresRestringidos,paseo,proximoVertice,Fin);
+				if((!vertice[proximoVertice.getPosition()]) && (!lugaresRestringidos.contains(proximoVertice.getData()))) {
+					ok = paseoEnBiciPrivado(vertice,lugares,maxTiempo - arista.getWeight(),lugaresRestringidos,paseo,proximoVertice,Fin);
 				}
 			}
 		}
