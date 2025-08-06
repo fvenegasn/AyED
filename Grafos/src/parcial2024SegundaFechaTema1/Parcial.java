@@ -44,17 +44,17 @@ public class Parcial {
 		cola.enqueue(null);
 		// mientras la cola no este vacia, pueda seguir invitando gente y la distancia me alcanza
 		while (!cola.isEmpty() && cantidadInvitados < limite && 
-				distanciaActual < distancia) {
+				distanciaActual <= distancia) {
 			// desencolo el ultimo elemento de la cola
 			Vertex<String> actual = cola.dequeue();
 			// si es un nodo valido
 			if (actual != null) {
 				// si el nodo actual no es el inicial
-				if (!inicio.getData().equals(actual.getData())) {
+				if (!inicio.getData().equals(actual.getData())) { // CONSULTAR -> que la distanciaActual sea != o > que 0?
 					// lo agrego a mi listado de invitados
 					invitados.add(new Invitado(actual.getData(), distanciaActual));
 					cantidadInvitados++;
-				}
+				} 
 				// obtengo los vecinos del nodo actual
 				List<Edge<String>> adyacentes = red.getEdges(actual);
 				// para cada vecino
@@ -62,7 +62,7 @@ public class Parcial {
 					// obtengo el proximo vertice
 					Vertex<String> proximoVertice = e.getTarget();
 					// si no lo visite
-					if (!visitados[proximoVertice.getPosition()]) {
+					if (!visitados[proximoVertice.getPosition()]) { // CONSULTA -> aca pondria tamb la pregunta de si llegue a mi limite? para no encolar ni marcar como visitados lugares que no corresponden
 						// lo marco como visitado
 						visitados[actual.getPosition()] = true;
 						// lo encolo
