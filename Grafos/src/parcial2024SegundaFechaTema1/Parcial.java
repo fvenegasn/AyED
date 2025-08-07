@@ -50,7 +50,7 @@ public class Parcial {
 			// si es un nodo valido
 			if (actual != null) {
 				// si el nodo actual no es el inicial
-				if (!inicio.getData().equals(actual.getData())) { // CONSULTAR -> que la distanciaActual sea != o > que 0?
+				if (!inicio.getData().equals(actual.getData())) { // CONSULTAR -> que la distanciaActual sea != o > que 0? -> otra opcion es encolar sólo los adyacentes y arranco con distancia = 1
 					// lo agrego a mi listado de invitados
 					invitados.add(new Invitado(actual.getData(), distanciaActual));
 					cantidadInvitados++;
@@ -62,11 +62,11 @@ public class Parcial {
 					// obtengo el proximo vertice
 					Vertex<String> proximoVertice = e.getTarget();
 					// si no lo visite
-					if (!visitados[proximoVertice.getPosition()]) { // CONSULTA -> aca pondria tamb la pregunta de si llegue a mi limite? para no encolar ni marcar como visitados lugares que no corresponden
+					if (!visitados[proximoVertice.getPosition()] && cantidadInvitados < limite) { // CONSULTA -> aca pondria tamb la pregunta de si llegue a mi limite? para no encolar ni marcar como visitados lugares que no corresponden
 						// lo marco como visitado
 						visitados[actual.getPosition()] = true;
 						// lo encolo
-						cola.enqueue(proximoVertice);
+						cola.enqueue(proximoVertice); // otra estrategia podria ser invitarlo cuando lo encolo
 					}
 				}
 			} else {

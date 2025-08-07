@@ -24,7 +24,7 @@ public class Ejercicio5 {
 		// si el grafo no es nulo y no esta vacio
 		if (grafo != null && !grafo.isEmpty()) {
 			// busco al empleado
-			Vertex<Persona> empleadoInicial = grafo.search(empleado);
+			Vertex<Persona> empleadoInicial = grafo.search(empleado); // si fuese graph de Persona y me dan el empleado en string no lo podria usar
 			// hago un arreglo de grafos visitados
 			boolean[] visitados = new boolean[grafo.getSize()];
 			// si el empleado no es null

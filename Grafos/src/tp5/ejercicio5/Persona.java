@@ -36,6 +36,13 @@ public class Persona {
 		this.domicilio = domicilio;
 	}
 	
-	
+	@Override
+	public boolean equals(Object persona) {
+		if (persona instanceof Persona) {
+			Persona aux = (Persona) persona;
+			return this.getTipo().equals(aux.getTipo()) && // lo mismo con los demas campos
+		}
+		return false;
+	}
 	
 }
